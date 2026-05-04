@@ -48,10 +48,12 @@ A premium, responsive quiz application built with React.js, featuring real-time 
 - `src/utils`: API utilities and helper functions
 - `src/assets`: Static assets and icons
 
-## API Reference
+## Data Source
 
-This project uses the [Open Trivia DB API](https://opentdb.com/api_config.php).
-- Categories: `https://opentdb.com/api_category.php`
-- Questions: `https://opentdb.com/api.php?amount=10&category={ID}&difficulty=medium&type=multiple`
+The application uses a local knowledge base of programming and technical questions across various categories:
+- **Languages**: C, C++, Java, Python, JavaScript
+- **Web**: HTML, CSS
+- **Databases**: SQL, MongoDB
+- **Questions**: 15 questions per category with multiple-choice options.
 
 

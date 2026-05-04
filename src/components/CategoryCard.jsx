@@ -3,38 +3,25 @@ import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 
 const CategoryCard = ({ category, onClick }) => {
-  // Map category IDs to icons for better visual appeal
-  const getIcon = (id) => {
-    const iconMap = {
-      9: 'MessageSquare', // General Knowledge
-      10: 'Book', // Entertainment: Books
-      11: 'Film', // Entertainment: Film
-      12: 'Music', // Entertainment: Music
-      13: 'Mic2', // Entertainment: Musicals & Theatres
-      14: 'Monitor', // Entertainment: Television
-      15: 'Gamepad2', // Entertainment: Video Games
-      16: 'Dices', // Entertainment: Board Games
-      17: 'Atom', // Science & Nature
-      18: 'Cpu', // Science: Computers
-      19: 'Calculator', // Science: Mathematics
-      20: 'Ghost', // Mythology
-      21: 'Trophy', // Sports
-      22: 'Globe', // Geography
-      23: 'History', // History
-      24: 'Users', // Politics
-      25: 'Palette', // Art
-      26: 'Users2', // Celebrities
-      27: 'Dog', // Animals
-      28: 'Car', // Vehicles
-      29: 'BookOpen', // Entertainment: Comics
-      30: 'Zap', // Science: Gadgets
-      31: 'Tv', // Entertainment: Japanese Anime & Manga
-      32: 'Play', // Entertainment: Cartoon & Animations
+  const getLogo = (name) => {
+    const logoMap = {
+      'C': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
+      'C++': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+      'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+      'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      'HTML': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+      'CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+      'SQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+      'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
     };
 
-    const iconName = iconMap[id] || 'HelpCircle';
-    const IconComponent = Icons[iconName] || Icons.HelpCircle;
-    return <IconComponent size={32} />;
+    const logoUrl = logoMap[name];
+    if (logoUrl) {
+      return <img src={logoUrl} alt={name} className="category-logo-img" />;
+    }
+    
+    return <Icons.HelpCircle size={32} />;
   };
 
   return (
@@ -48,8 +35,9 @@ const CategoryCard = ({ category, onClick }) => {
       transition={{ duration: 0.3 }}
     >
       <div className="category-icon-wrapper">
-        {getIcon(category.id)}
+        {getLogo(category.name)}
       </div>
+
       <h3 className="category-name">{category.name}</h3>
       <div className="category-glow"></div>
       
@@ -89,6 +77,17 @@ const CategoryCard = ({ category, onClick }) => {
           box-shadow: 0 0 20px var(--primary-glow);
         }
         
+        .category-logo-img {
+          width: 38px;
+          height: 38px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .category-logo-img {
+          transform: scale(1.1);
+        }
+
         .category-name {
           font-size: 1rem;
           font-weight: 600;

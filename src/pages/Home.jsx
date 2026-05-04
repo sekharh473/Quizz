@@ -78,7 +78,7 @@ const Home = ({ onSelectCategory }) => {
           transition={{ delay: 0.1 }}
         >
           <h1 className="hero-title">Challenge Your <span className="gradient-text">Mind</span></h1>
-          <p className="hero-subtitle">Test your knowledge across 20+ categories and climb the global leaderboards.</p>
+          <p className="hero-subtitle">Master programming languages and web technologies with our curated technical quizzes.</p>
         </motion.div>
       </div>
 

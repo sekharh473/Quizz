@@ -59,7 +59,7 @@ const ResultScreen = ({ score, total, onRestart, onHome, categoryName }) => {
       <div className="stats-row">
         <div className="stat-item">
           <span className="stat-label">Accuracy</span>
-          <span className="stat-value">{percentage}%</span>
+          <span className="stat-value">{Number(percentage.toFixed(2))}%</span>
         </div>
         <div className="stat-item">
           <span className="stat-label">High Score</span>
